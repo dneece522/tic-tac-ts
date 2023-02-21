@@ -10,3 +10,7 @@ const winningCombos: number[][] = [
   [0, 4, 8],
   [2, 4, 6]
 ]
+
+/*---------------------------- Variables (state) ----------------------------*/
+
+let board: number[], turn: number, winner: boolean, tie: boolean
