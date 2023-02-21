@@ -12,3 +12,7 @@ const winningCombos = [
 ];
 /*---------------------------- Variables (state) ----------------------------*/
 let board, turn, winner, tie;
+/*------------------------ Cached Element References ------------------------*/
+const squareEls = document.querySelectorAll('.sqr');
+const messageEl = document.querySelector('#message');
+const resetBtnEl = document.querySelector('#btn');
