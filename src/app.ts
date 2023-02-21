@@ -25,3 +25,20 @@ const resetBtnEl = document.querySelector<HTMLButtonElement>('#btn')
 
 document.querySelector<HTMLElement>('.board')?.addEventListener('click', handleClick)
 resetBtnEl?.addEventListener('click', init)
+
+/*-------------------------------- Functions --------------------------------*/
+
+init()
+
+function init(): void {
+  board = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  turn = 1
+  winner = false
+  tie = false
+  render()
+}
+
+function render(): void {
+  updateBoard()
+  updateMessage()
+}
