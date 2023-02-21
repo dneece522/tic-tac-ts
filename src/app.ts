@@ -17,6 +17,11 @@ let board: number[], turn: number, winner: boolean, tie: boolean
 
 /*------------------------ Cached Element References ------------------------*/
 
-const squareEls = document.querySelectorAll<HTMLDivElement>('.sqr')
+const squareEls = document.querySelectorAll<HTMLElement>('.sqr')
 const messageEl = document.querySelector<HTMLHeadingElement>('#message')
 const resetBtnEl = document.querySelector<HTMLButtonElement>('#btn')
+
+/*----------------------------- Event Listeners -----------------------------*/
+
+document.querySelector<HTMLElement>('.board')?.addEventListener('click', handleClick)
+resetBtnEl?.addEventListener('click', init)
