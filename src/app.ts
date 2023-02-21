@@ -42,3 +42,17 @@ function render(): void {
   updateBoard()
   updateMessage()
 }
+
+function updateBoard(): void {
+  board.forEach((sqr, idx) => {
+    if (sqr === 1) {
+      squareEls[idx].innerText = 'X'
+      squareEls[idx].style.color = 'red'
+    } else if (sqr === -1) {
+      squareEls[idx].innerText = 'O'
+      squareEls[idx].style.color = 'blue'
+    } else {
+      squareEls[idx].innerText = ''
+    }
+  })
+}
