@@ -70,9 +70,20 @@ function handleClick(evt) {
         return;
     if (winner === true)
         return;
-    // placePiece(sqIdx)
-    // checkForTie()
+    placePiece(sqIdx);
+    checkForTie();
     // checkForWinner()
     // switchPlayerTurn()
     render();
+}
+function placePiece(idx) {
+    board[idx] = turn;
+}
+function checkForTie() {
+    if (board.some(board => board === 0)) {
+        tie = false;
+    }
+    else {
+        tie = true;
+    }
 }

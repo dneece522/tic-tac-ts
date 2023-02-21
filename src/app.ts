@@ -78,9 +78,21 @@ function handleClick(evt: MouseEvent): void {
   if (board[sqIdx] !== 0) return
   if (winner === true) return
 
-  // placePiece(sqIdx)
-  // checkForTie()
+  placePiece(sqIdx)
+  checkForTie()
   // checkForWinner()
   // switchPlayerTurn()
   render()
+}
+
+function placePiece(idx: number): void {
+  board[idx] = turn
+}
+
+function checkForTie(): void {
+  if (board.some(board => board === 0)) {
+    tie = false
+  } else {
+    tie = true
+  }
 }
