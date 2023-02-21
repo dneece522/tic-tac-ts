@@ -18,8 +18,8 @@ let board: number[], turn: number, winner: boolean, tie: boolean
 /*------------------------ Cached Element References ------------------------*/
 
 const squareEls = document.querySelectorAll<HTMLElement>('.sqr')
-const messageEl = document.querySelector<HTMLHeadingElement>('#message')
-const resetBtnEl = document.querySelector<HTMLButtonElement>('#btn')
+const messageEl = document.getElementById('message') as HTMLHeadingElement
+const resetBtnEl = document.getElementById('btn') as HTMLButtonElement
 
 /*----------------------------- Event Listeners -----------------------------*/
 
@@ -55,4 +55,17 @@ function updateBoard(): void {
       squareEls[idx].innerText = ''
     }
   })
+}
+
+function updateMessage(): void {
+  if (winner === false && tie === false) {
+    messageEl.textContent = turn === -1 ? "Player O's Turn" :  "Player X's Turn"
+    messageEl.style.color = turn === -1 ? 'blue' :  'red'
+  } else if (winner === false && tie === true) {
+    messageEl.textContent = "CAT!"
+    messageEl.style.color = 'purple'
+  } else {
+    messageEl.textContent = turn === -1 ? "Player O Won!" :  "Player X Won!"
+    messageEl.style.color = turn === -1 ? 'blue' :  'red'
+  }
 }

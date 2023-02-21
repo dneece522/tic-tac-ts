@@ -14,8 +14,8 @@ const winningCombos = [
 let board, turn, winner, tie;
 /*------------------------ Cached Element References ------------------------*/
 const squareEls = document.querySelectorAll('.sqr');
-const messageEl = document.querySelector('#message');
-const resetBtnEl = document.querySelector('#btn');
+const messageEl = document.getElementById('message');
+const resetBtnEl = document.getElementById('btn');
 /*----------------------------- Event Listeners -----------------------------*/
 document.querySelector('.board')?.addEventListener('click', handleClick);
 resetBtnEl?.addEventListener('click', init);
@@ -46,4 +46,18 @@ function updateBoard() {
             squareEls[idx].innerText = '';
         }
     });
+}
+function updateMessage() {
+    if (winner === false && tie === false) {
+        messageEl.textContent = turn === -1 ? "Player O's Turn" : "Player X's Turn";
+        messageEl.style.color = turn === -1 ? 'blue' : 'red';
+    }
+    else if (winner === false && tie === true) {
+        messageEl.textContent = "CAT!";
+        messageEl.style.color = 'purple';
+    }
+    else {
+        messageEl.textContent = turn === -1 ? "Player O Won!" : "Player X Won!";
+        messageEl.style.color = turn === -1 ? 'blue' : 'red';
+    }
 }
