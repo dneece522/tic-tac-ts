@@ -20,10 +20,11 @@ let board: number[], turn: number, winner: boolean, tie: boolean
 const squareEls = document.querySelectorAll<HTMLElement>('.sqr')
 const messageEl = document.getElementById('message') as HTMLHeadingElement
 const resetBtnEl = document.getElementById('btn') as HTMLButtonElement
+const boardEl = document.getElementById('board') as HTMLElement
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-document.querySelector<HTMLElement>('.board')?.addEventListener('click', handleClick)
+boardEl?.addEventListener('click', handleClick)
 resetBtnEl?.addEventListener('click', init)
 
 /*-------------------------------- Functions --------------------------------*/
@@ -68,4 +69,18 @@ function updateMessage(): void {
     messageEl.textContent = turn === -1 ? "Player O Won!" :  "Player X Won!"
     messageEl.style.color = turn === -1 ? 'blue' :  'red'
   }
+}
+
+function handleClick(evt: MouseEvent): void {
+  if (!(evt.target instanceof HTMLElement)) return
+  let sqIdx: number = parseInt(evt.target.id.replace('sq', ''))
+
+  if (board[sqIdx] !== 0) return
+  if (winner === true) return
+
+  // placePiece(sqIdx)
+  // checkForTie()
+  // checkForWinner()
+  // switchPlayerTurn()
+  render()
 }
